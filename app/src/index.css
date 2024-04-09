@@ -1,0 +1,103 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@400;700;900&display=swap");
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer components {
+    * {
+        @apply font-['Inter']
+    }
+
+    body {
+        @apply bg-gradient-to-r from-slate-50 to-slate-200
+    }
+
+    .entrance-input {
+        @apply text-lg w-[20rem] bg-slate-100 border-none rounded-md p-3
+    }
+
+    .home-footer-button {
+        @apply border-x p-2 border-amber-600 text-white h-[4rem]
+    }
+
+    .calendar-week-navigator {
+        @apply bg-amber-300 h-[1.7rem] text-white
+    }
+
+    .modal-black-bg {
+        @apply fixed inset-0 flex items-center justify-center bg-black bg-opacity-50 mb-16
+    }
+
+    .modal-white-bg {
+        @apply bg-white p-8 w-[90%] rounded-lg shadow-md
+    }
+
+    /* .modal-title
+
+    .modal-subtitle */
+
+    .modal-border-button-container {
+        @apply mt-[1.5rem] mb-[3rem] flex flex-col items-start gap-[1.5rem] text-xl
+    }
+
+    .modal-border-button {
+        @apply border-amber-400 border-[1px] w-[14rem] px-3 py-1 rounded-md
+    }
+
+    .modal-close-button-container {
+        @apply flex justify-end font-bold text-lg
+    }
+
+    .modal-close-button {
+        @apply bg-amber-400 px-3 py-1 rounded-md
+    }
+
+    .pincode-digit {
+        @apply w-12 h-12 text-center border-2 border-gray-300 rounded-md
+    }
+
+    .plus-button {
+        @apply bg-amber-400 w-14 h-14 rounded-full text-3xl flex items-center justify-center fixed right-[2rem] bottom-[6rem]
+    }
+
+    .close-submit-buttons-container {
+        @apply flex font-bold text-lg justify-end gap-[1rem]
+    }
+
+    .form-submit-button {
+        @apply px-4 py-2 bg-amber-400 text-white rounded-md hover:bg-amber-600
+    }
+
+    .Feedback {
+        @apply absolute w-full pt-10 top-[30%] flex flex-col items-center bg-white rounded-lg pb-[17px] z-10 shadow-lg shadow-slate-200
+    }
+
+    .Feedback p {
+        @apply font-bold text-white
+    }
+
+    .Feedback .button {
+        @apply bg-black
+    }
+
+    .Feedback--debug {
+        @apply bg-yellow-200
+    }
+
+    .Feedback--info {
+        @apply bg-cyan-400
+    }
+
+    .Feedback--warn {
+        @apply bg-amber-400
+    }
+
+    .Feedback--error {
+        @apply bg-red-400
+    }
+
+    .Feedback--fatal {
+        @apply bg-black
+    }
+}
