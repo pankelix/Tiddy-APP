@@ -1,4 +1,4 @@
-# House organization App
+# Tiddy - Periodic Chores Manager
 
 ## Intro
 
