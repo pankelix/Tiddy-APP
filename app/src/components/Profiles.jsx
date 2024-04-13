@@ -249,7 +249,7 @@ function Profiles(props) {
 
     return <Container className='px-[1rem] w-screen'>
         <article className='flex mb-[1rem] ml-[0.2rem]'>
-            {profiles.length > 0 && !session.profileId && <h3 key={'login-message'} className='font-bold text-xl mt-[2rem]'>Please, click on your name to log in</h3>}
+            {profiles.length > 0 && !session.profileId && <h3 key={'login-message'} className='font-bold text-xl mt-[2rem]'>Please, click on your name to log in or create a new profile</h3>}
         </article>
 
         <article className='flex flex-col max-h-[33rem] overflow-y-auto'>
@@ -267,7 +267,7 @@ function Profiles(props) {
 
         {view === 'login-profile-view' && <article className='modal-black-bg'>
             <div className='modal-white-bg'>
-                <div className='modal-border-button-container items-center'>
+                <div className='items-center modal-border-button-container'>
                     <Form onSubmit={handleLoginProfileSubmit} id='login-profile-form'>
                         <div className='flex flex-col items-center mt-[1rem] gap-[1.5rem]'>
                             <h3>Logging to {name}</h3>
@@ -316,7 +316,7 @@ function Profiles(props) {
 
         {view === 'change-color-view' && <article className='modal-black-bg'>
             <div className='modal-white-bg'>
-                <div className='modal-border-button-container grid grid-cols-3 gap-4'>
+                <div className='grid grid-cols-3 gap-4 modal-border-button-container'>
                     {palette.map(color => !usedColors.includes(color.code) ? <Button key={color.code} onClick={() => handleColorClick(color)} style={{ backgroundColor: color.code, opacity: chosenColor === color ? 1 : 0.5 }} className='ml-[1.1rem] h-12 w-12'></Button> : '')}
                 </div>
 
@@ -329,7 +329,7 @@ function Profiles(props) {
 
         {view === 'change-pincode-view' && <article className='modal-black-bg'>
             <div className='modal-white-bg'>
-                <div className='modal-border-button-container items-center'>
+                <div className='items-center modal-border-button-container'>
                     <Form onSubmit={handleChangePincodeSubmit} id='change-pincode-form'>
                         <div className='flex flex-col items-center mt-[2rem] gap-[1.5rem]'>
                             <p className='text-xl font-bold'>Old pin code</p>
@@ -359,7 +359,7 @@ function Profiles(props) {
         </article>}
 
         {view === 'manage-profiles-view' && <article className='modal-black-bg'>
-            <div className='modal-white-bg p-5'>
+            <div className='p-5 modal-white-bg'>
                 {<Form onSubmit={handleManageProfileSubmit} id='manage-profile-form'>
                     <aside className='modal-border-button-container items-center max-h-[15rem] overflow-y-auto'>
                         {profiles.map(profile => profile.id !== session.profileId ? <Button key={profile.id} type='button' style={{ borderWidth: activeProfileId === profile.id ? '3px' : '1px' }} onClick={() => handleActiveProfileClick(profile.id)} className='modal-border-button'>{profile.name}</Button> : '')}
@@ -373,7 +373,7 @@ function Profiles(props) {
                 </Form>}
 
                 <div className='close-submit-buttons-container justify-center mb-[2rem]'>
-                    <Button form='manage-profile-form' type='submit' className='form-submit-button text-base'>Change Role</Button>
+                    <Button form='manage-profile-form' type='submit' className='text-base form-submit-button'>Change Role</Button>
                 </div>
                 <div className='close-submit-buttons-container'>
                     <Button onClick={handleCancelClick} className='modal-close-button'>X</Button>
@@ -389,7 +389,7 @@ function Profiles(props) {
 
         {view === 'new-profile-view' && <article className='modal-black-bg'>
             <div className='modal-white-bg'>
-                <div className='modal-border-button-container items-center'>
+                <div className='items-center modal-border-button-container'>
                     <Form onSubmit={handleNewProfileSubmit} id='new-profile-form'>
 
                         <Input id='name' type='text' placeholder='Profile name' className='entrance-input'></Input>
@@ -407,7 +407,7 @@ function Profiles(props) {
                         <div className='flex flex-col items-center mt-[2rem] mb-[-3rem] '>
                             <p className='text-xl font-bold'>Choose color</p>
                             <div className='modal-border-button-container grid grid-cols-3 gap-4 max-h-[15rem] overflow-y-auto px-2'>
-                                {palette.map(color => !usedColors.includes(color.code) ? <Button type='button' key={color.code} onClick={() => handleColorClick(color)} style={{ backgroundColor: color.code, opacity: chosenColor === color ? 1 : 0.5 }} className='h-12 w-12'></Button> : '')}
+                                {palette.map(color => !usedColors.includes(color.code) ? <Button type='button' key={color.code} onClick={() => handleColorClick(color)} style={{ backgroundColor: color.code, opacity: chosenColor === color ? 1 : 0.5 }} className='w-12 h-12'></Button> : '')}
                             </div>
                         </div>
                     </Form>
