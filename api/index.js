@@ -39,7 +39,7 @@ import {
     materializeTaskHandler,
 } from './handlers/index.js'
 
-mongoose.connect(process.env.MONGODB_URL)
+mongoose.connect("mongodb+srv://miguelariasdesign:7wUhTFeyitAaCMmI@tiddy-app.9o7b0tj.mongodb.net/")
     .then(() => {
         const server = express()
         const jsonBodyParser = express.json()
