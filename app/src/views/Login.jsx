@@ -29,6 +29,14 @@ function Login(props) {
 
     return <Container className='flex items-center justify-center gap-[25px] h-screen'>
         <article className='box-border bg-white rounded-lg w-screen h-[760px] px-[30px] py-[70px] flex flex-col items-center gap-[10px] shadow-lg shadow-slate-200'>
+            <div className='p-4 rounded-md bg-amber-300'>
+                <h4 className='font-semibold'>Demo account:</h4>
+                <div>
+                    <p>Email: man@sion.com</p>
+                    <p>Password: 123123123</p>
+                </div>
+            </div>
+
             <Form onSubmit={handleSubmit} className='select-none h-[38px] w-[360px] flex flex-col items-center gap-[10px] relative top-[10rem]'>
 
                 <h1 className='text-4xl font-semibold mb-[1rem]'>Login</h1>
@@ -36,6 +44,8 @@ function Login(props) {
                 <Input id='email-input' type='email' placeholder='Email' className='entrance-input'>Email</Input>
 
                 <Input id='password-input' type='password' placeholder='Password' className='entrance-input'>Password</Input>
+
+
 
                 <Button type='submit' className='cursor-pointer p-[1.8rem] border-none rounded-md text-lg text-white bg-amber-400 absolute top-[17rem] w-[216px] h-[30px] flex justify-center items-center'>Log In</Button>
             </Form>
