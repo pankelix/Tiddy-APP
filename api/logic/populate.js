@@ -9,7 +9,7 @@ import { Home, Room, Profile, Template, Task } from '../data/models.js'
 
 (async () => {
     try {
-        await mongoose.connect('mongodb://127.0.0.1:27017/test')
+        await mongoose.connect('mongodb+srv://miguelariasdesign:7wUhTFeyitAaCMmI@tiddy-app.9o7b0tj.mongodb.net/test')
         await Home.deleteMany()
         await Room.deleteMany()
         await Profile.deleteMany()
@@ -93,7 +93,7 @@ import { Home, Room, Profile, Template, Task } from '../data/models.js'
         } catch (error) {
             console.log(error)
         }
-
+/*
         //Task
         //homeId, templateId, date
         await createTask(mansion.id, cleanShower.id, '2024-03-15')
@@ -102,7 +102,7 @@ import { Home, Room, Profile, Template, Task } from '../data/models.js'
         await createTask(mansion.id, lawnRaking.id, '2024-03-18')
         await createTask(mansion.id, changeSheets.id, '2024-03-19')
         await createTask(mansion.id, changeSheets2.id, '2024-03-20')
-        await createTask(mansion.id, cleanOven.id, '2024-03-21')
+        await createTask(mansion.id, cleanOven.id, '2024-03-21') */
 
         console.log('database populated')
 
