@@ -27,17 +27,9 @@ function Login(props) {
         props.onRegisterClick()
     }
 
-    return <Container className='flex items-center justify-center gap-[25px] h-screen'>
-        <article className='box-border bg-white rounded-lg w-screen h-[760px] px-[30px] py-[70px] flex flex-col items-center gap-[10px] shadow-lg shadow-slate-200'>
-            <div className='p-4 rounded-md bg-amber-300'>
-                <h4 className='font-semibold'>Demo account:</h4>
-                <div>
-                    <p>Email: man@sion.com</p>
-                    <p>Password: 123123123</p>
-                </div>
-            </div>
-
-            <Form onSubmit={handleSubmit} className='select-none h-[38px] w-[360px] flex flex-col items-center gap-[10px] relative top-[10rem]'>
+    return <Container className='flex flex-col items-center justify-center'>
+        <article className='box-border bg-white rounded-lg max-w-screen max-h-screen py-[70px] flex flex-col items-center gap-[10px] shadow-lg shadow-slate-200 h-screen'>
+            <Form onSubmit={handleSubmit} className='select-none w-[360px] flex flex-col items-center gap-[10px]'>
 
                 <h1 className='text-4xl font-semibold mb-[1rem]'>Login</h1>
 
@@ -47,13 +39,21 @@ function Login(props) {
 
 
 
-                <Button type='submit' className='cursor-pointer p-[1.8rem] border-none rounded-md text-lg text-white bg-amber-400 absolute top-[17rem] w-[216px] h-[30px] flex justify-center items-center'>Log In</Button>
+                <Button type='submit' className='cursor-pointer mt-5 p-[1.8rem] border-none rounded-md text-lg text-white bg-amber-400 w-[216px] h-[30px] flex justify-center items-center'>Log In</Button>
             </Form>
 
-            <nav className='text-sm flex justify-center gap-4 absolute bottom-[12rem] w-[100%] font-'>
+            <nav className='text-sm flex justify-center gap-4 w-[100%] pt-28'>
                 <p>Don't have an account?</p>
-                <Link onClick={handleRegisterClick}>Create new account</Link>
+                <Link className='underline underline-offset-2' onClick={handleRegisterClick}>Create new account</Link>
             </nav>
+
+            <div className='p-4 rounded-md mt-14 bg-amber-300'>
+                <h4 className='font-semibold'>Demo account:</h4>
+                <div>
+                    <p>Email: man@sion.com</p>
+                    <p>Password: 123123123</p>
+                </div>
+            </div>
         </article>
     </Container>
 }
