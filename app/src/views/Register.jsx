@@ -30,9 +30,9 @@ function Register(props) {
         props.onLoginClick()
     }
 
-    return <Container className='flex items-center justify-center gap-[25px] h-screen'>
-        <article className='box-border bg-white rounded-lg w-screen h-[760px] px-[30px] py-[70px] flex flex-col items-center gap-[10px] shadow-lg shadow-slate-200'>
-            <Form onSubmit={handleSubmit} className='select-none h-[38px] w-[360px] flex flex-col items-center gap-[10px] relative top-[10rem]'>
+    return <Container className='flex items-center justify-center '>
+        <article className='box-border bg-white rounded-lg max-w-screen-md py-[70px] flex flex-col items-center gap-[10px] shadow-lg shadow-slate-200 h-screen'>
+            <Form onSubmit={handleSubmit} className='select-none w-[360px] flex flex-col items-center gap-[10px]'>
 
                 <h1 className='text-4xl font-semibold mb-[1rem]'>Register</h1>
 
@@ -42,11 +42,12 @@ function Register(props) {
 
                 <Input id='password-input' type='Password' placeholder='Password' className='entrance-input'>Password</Input>
 
-                <Button type='submit' className='cursor-pointer p-[1.8rem] border-none rounded-md text-lg text-white bg-amber-400 absolute top-[17rem] w-[216px] h-[30px] flex justify-center items-center'>Register</Button>
+                <Button type='submit' className='cursor-pointer mt-5 p-[1.8rem] border-none rounded-md text-lg text-white bg-amber-400 w-[216px] h-[30px] flex justify-center items-center'>Register</Button>
             </Form>
-            <nav className='text-sm flex justify-center gap-4 absolute bottom-[12rem] w-[100%]'>
+
+            <nav className='text-sm flex justify-center gap-4 w-[100%] pt-14'>
                 <p>Already have an account?</p>
-                <Link onClick={handleLoginClick}>Log in</Link>
+                <Link className='underline underline-offset-2' onClick={handleLoginClick}>Log in</Link>
             </nav>
         </article>
     </Container>
