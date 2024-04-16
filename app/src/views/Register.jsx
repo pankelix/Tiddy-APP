@@ -43,7 +43,7 @@ function Register(props) {
                 <Button type='submit' className='cursor-pointer mt-5 p-[1.8rem] border-none rounded-md text-lg text-white bg-amber-400 w-[216px] h-[30px] flex justify-center items-center'>Register</Button>
             </Form>
 
-            <nav className='text-sm flex justify-center gap-4 w-[100%] pt-14'>
+            <nav className='text-sm flex justify-center gap-4 w-[100%] pt-5'>
                 <p>Already have an account?</p>
                 <Link className='underline underline-offset-2' onClick={handleLoginClick}>Log in</Link>
             </nav>

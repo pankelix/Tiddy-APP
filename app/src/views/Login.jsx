@@ -38,7 +38,7 @@ function Login(props) {
                 <Button type='submit' className='cursor-pointer mt-5 p-[1.8rem] border-none rounded-md text-lg text-white bg-amber-400 w-[216px] h-[30px] flex justify-center items-center'>Log In</Button>
             </Form>
 
-            <nav className='text-sm flex justify-center gap-4 w-[100%] pt-28'>
+            <nav className='text-sm flex justify-center gap-4 w-[100%] pt-20'>
                 <p>Don't have an account?</p>
                 <Link className='underline underline-offset-2' onClick={handleRegisterClick}>Create new account</Link>
             </nav>
