@@ -385,12 +385,12 @@ function Calendar(props) {
         </article>
 
         <article className='relative'>
-            <Button onClick={handleLastWeekClick} className='absolute top-0 z-10 w-full calendar-week-navigator'>▲</Button>
-            <article className='flex flex-col max-h-[33rem] overflow-y-auto my-2'>
+            <Button onClick={handleLastWeekClick} className='absolute top-0 w-full z-5 calendar-week-navigator'>▲</Button>
+            <article className='flex flex-col max-h-[27rem] overflow-y-auto my-2'>
                 {tasks.map(task => task.id ? <Task key={task.id} task={task} profile={profiles.find(profile => task.assignee === profile.id)} profileName={profiles.map(profile => task.assignee === profile.id ? profile.name : '')} onTaskClick={(task) => handleOnTaskClick(task)} today={today} /> : <EmptyDate key={task.date} task={task} onTaskClick={(taskDate) => handleProposeTaskClick(taskDate)} today={today} />)}
             </article>
 
-            <Button onClick={handleNextWeekClick} className='absolute bottom-0 z-10 w-full calendar-week-navigator'>▼</Button>
+            <Button onClick={handleNextWeekClick} className='absolute bottom-0 w-full z-5 calendar-week-navigator'>▼</Button>
         </article>
 
         <article className='flex mb-[1rem] ml-[0.2rem]'>

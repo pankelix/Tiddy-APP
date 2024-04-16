@@ -58,7 +58,7 @@
     }
 
     .plus-button {
-        @apply bg-amber-400 w-14 h-14 rounded-full text-3xl flex items-center justify-center fixed right-[2rem] bottom-[6rem]
+        @apply bg-amber-400 px-3 py-0.5 text-xl rounded-md flex items-center justify-center fixed right-[2rem] bottom-[5rem]
     }
 
     .close-submit-buttons-container {
