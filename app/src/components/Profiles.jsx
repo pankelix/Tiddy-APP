@@ -252,7 +252,7 @@ function Profiles(props) {
             {profiles.length > 0 && !session.profileId && <h3 key={'login-message'} className='font-bold text-xl mt-[2rem]'>Please, click on your name to log in or create a new profile</h3>}
         </article>
 
-        <article className='flex flex-col max-h-[33rem] overflow-y-auto'>
+        <article className='flex flex-col max-h-[27rem] overflow-y-auto'>
             {session.profileId && profiles.map(profile => session.profileId === profile.id ? <aside key={profile.id} className='flex gap-[1rem]'><Button onClick={handleProfileClick}><h4 profile={profile} className='font-bold text-xl mb-[2rem]'>Hello {profile.name}</h4></Button> <Button style={{ backgroundColor: profile.color.code }} className={'w-7 h-7 rounded-full'}></Button></aside> : '')}
             <article className='flex justify-center gap-[2rem] mb-[2rem]'>
                 {session.profileRole === 'admin' && profiles.length > 1 ? <Button onClick={handleManageProfilesClick} className='form-submit-button'>Manage profiles</Button> : ''}
