@@ -14,8 +14,6 @@ import { Container, Button, Form, Input, Label } from '../library'
 import { Task, EmptyDate } from '.'
 
 function Calendar(props) {
-    /* console.log('Calendar') */
-
     const context = useContext()
     const navigate = useNavigate()
 
@@ -155,8 +153,6 @@ function Calendar(props) {
     }
 
     useEffect(() => {
-        /* console.log('Tasks/Profiles effect') */
-
         refreshToday()
         retrieveAssignee()
         refreshTasks()
@@ -380,7 +376,7 @@ function Calendar(props) {
     }
 
     return <Container className='px-[1rem] w-screen'>
-        <article className='flex mb-[1rem] ml-[0.2rem] mt-[1rem]'>
+        <article className='flex md:my-[1rem] ml-[0.2rem]'>
             <Button onClick={handleArrangeTasksClick} className='text-2xl'>{reversed ? '▼' : '▲'}</Button>
 
             <aside className='ml-[14.5rem] mt-[0.3rem] gap-[1rem]'>
@@ -388,12 +384,13 @@ function Calendar(props) {
             </aside>
         </article>
 
-        <article className='flex flex-col max-h-[33rem] overflow-y-auto'>
-            <Button onClick={handleLastWeekClick} className='calendar-week-navigator'>▲</Button>
+        <article className='relative'>
+            <Button onClick={handleLastWeekClick} className='absolute top-0 z-10 w-full calendar-week-navigator'>▲</Button>
+            <article className='flex flex-col max-h-[33rem] overflow-y-auto my-2'>
+                {tasks.map(task => task.id ? <Task key={task.id} task={task} profile={profiles.find(profile => task.assignee === profile.id)} profileName={profiles.map(profile => task.assignee === profile.id ? profile.name : '')} onTaskClick={(task) => handleOnTaskClick(task)} today={today} /> : <EmptyDate key={task.date} task={task} onTaskClick={(taskDate) => handleProposeTaskClick(taskDate)} today={today} />)}
+            </article>
 
-            {tasks.map(task => task.id ? <Task key={task.id} task={task} profile={profiles.find(profile => task.assignee === profile.id)} profileName={profiles.map(profile => task.assignee === profile.id ? profile.name : '')} onTaskClick={(task) => handleOnTaskClick(task)} today={today} /> : <EmptyDate key={task.date} task={task} onTaskClick={(taskDate) => handleProposeTaskClick(taskDate)} today={today} />)}
-
-            <Button onClick={handleNextWeekClick} className='calendar-week-navigator'>▼</Button>
+            <Button onClick={handleNextWeekClick} className='absolute bottom-0 z-10 w-full calendar-week-navigator'>▼</Button>
         </article>
 
         <article className='flex mb-[1rem] ml-[0.2rem]'>
@@ -403,9 +400,9 @@ function Calendar(props) {
         {view === 'react-to-task-view' && session.profileRole !== null && <article className='modal-black-bg'>
             <div className='modal-white-bg'>
                 <div className='flex gap-[0.7rem] mb-[1rem]'>
-                    {session.profileRole === 'admin' && <h3 className='bg-amber-400 p-4 rounded-full font-bold text-lg'>{helpers.arrangeDate(task.date).split(' ')[0]}</h3>}
+                    {session.profileRole === 'admin' && <h3 className='p-4 text-lg font-bold rounded-full bg-amber-400'>{helpers.arrangeDate(task.date).split(' ')[0]}</h3>}
                     <div className='flex flex-col'>
-                        {session.profileRole === 'admin' && <h3 className='font-bold text-lg'>{helpers.arrangeText(task.template.name)}</h3>}
+                        {session.profileRole === 'admin' && <h3 className='text-lg font-bold'>{helpers.arrangeText(task.template.name)}</h3>}
 
                         {session.profileRole === 'admin' && (
                             <h3 className='text-lg' style={{ color: profiles.find(profile => profile.id === task.assignee)?.color?.code }}>
@@ -448,7 +445,7 @@ function Calendar(props) {
 
         {view === 'pin-code-view' && <article className='modal-black-bg'>
             <div className='modal-white-bg'>
-                <div className='modal-border-button-container items-center'>
+                <div className='items-center modal-border-button-container'>
                     <Form onSubmit={handleCompleteSubmit} id='complete-task-form'>
                         <div className='flex flex-col gap-[1rem] mb-[2rem]'>
                             <Label form='completionDate' className='font-bold'>Completion date</Label>
@@ -478,7 +475,7 @@ function Calendar(props) {
 
         {view === 'delay-task-view' && <article className='modal-black-bg'>
             <div className='modal-white-bg'>
-                <div className='modal-border-button-container items-center'>
+                <div className='items-center modal-border-button-container'>
                     <Form id='delay-task-form' onSubmit={handleDelaySubmit}>
                         <Input id='delayDate' min={buttonDate} defaultValue={buttonDate} type={'date'} required={true} className='border-2 border-amber-400'></Input>
                     </Form>
