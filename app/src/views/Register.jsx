@@ -5,8 +5,6 @@ import { Container, Form, Link, Input, Button } from '../library'
 import logic from '../logic'
 
 function Register(props) {
-    /* console.log('register') */
-
     const context = useContext()
 
     const handleSubmit = async event => {

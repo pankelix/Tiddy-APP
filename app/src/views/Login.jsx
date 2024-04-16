@@ -4,8 +4,6 @@ import { Container, Form, Input, Button, Link } from '../library'
 import { useContext } from '../hooks'
 
 function Login(props) {
-    /* console.log('login') */
-
     const context = useContext()
 
     const handleSubmit = async event => {
@@ -36,8 +34,6 @@ function Login(props) {
                 <Input id='email-input' type='email' placeholder='Email' className='entrance-input'>Email</Input>
 
                 <Input id='password-input' type='password' placeholder='Password' className='entrance-input'>Password</Input>
-
-
 
                 <Button type='submit' className='cursor-pointer mt-5 p-[1.8rem] border-none rounded-md text-lg text-white bg-amber-400 w-[216px] h-[30px] flex justify-center items-center'>Log In</Button>
             </Form>
