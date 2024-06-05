@@ -2,20 +2,30 @@ import logic from '../logic'
 
 import { Container, Form, Input, Button, Link } from '../library'
 import { useContext } from '../hooks'
+import { useState } from 'react'
+import ClipLoader from 'react-spinners/ClipLoader'
 
 function Login(props) {
     const context = useContext()
 
+    const [loading, setLoading] = useState(false)
+    const [color, setColor] = useState('#fff')
+
     const handleSubmit = async event => {
         event.preventDefault()
+
+        setLoading(true)
 
         const email = event.target.querySelector('#email-input').value
         const password = event.target.querySelector('#password-input').value
 
         try {
             await logic.loginHome(email, password)
+
             props.onSuccess()
+            setLoading(false)
         } catch (error) {
+            setLoading(false)
             context.handleError(error)
         }
     }
@@ -26,6 +36,7 @@ function Login(props) {
     }
 
     return <Container className='flex flex-col items-center justify-center'>
+
         <article className='box-border bg-white rounded-lg max-w-screen max-h-screen py-[70px] flex flex-col items-center gap-[10px] shadow-lg shadow-slate-200 h-screen'>
             <Form onSubmit={handleSubmit} className='select-none w-[360px] flex flex-col items-center gap-[10px]'>
 
@@ -37,6 +48,22 @@ function Login(props) {
 
                 <Button type='submit' className='cursor-pointer mt-5 p-[1.8rem] border-none rounded-md text-lg text-white bg-amber-400 w-[216px] h-[30px] flex justify-center items-center'>Log In</Button>
             </Form>
+
+            {loading ?
+                <div className='absolute p-5 rounded-md w-72 bg-amber-400 top-60'>
+                    <p className='pb-4 font-bold text-center text-white'>Login may take up to 3 minutes, because the server has to initialize. After that it'll be faster.</p>
+
+                    <div className='flex justify-center'>
+                        <ClipLoader
+                            color={color}
+                            loading={loading}
+                            size={100}
+                            aria-label="Loading Spinner"
+                            data-testid="loader"
+                        />
+                    </div>
+
+                </div> : ''}
 
             <nav className='text-sm flex justify-center gap-4 w-[100%] pt-20'>
                 <p>Don't have an account?</p>
