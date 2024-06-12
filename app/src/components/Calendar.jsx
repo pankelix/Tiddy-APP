@@ -376,21 +376,22 @@ function Calendar(props) {
     }
 
     return <Container className='px-[1rem] w-screen'>
-        <article className='flex md:my-[1rem] ml-[0.2rem]'>
+        <article className='flex items-center justify-between mx-1 md:my-2'>
             <Button onClick={handleArrangeTasksClick} className='text-2xl'>{reversed ? '▼' : '▲'}</Button>
 
-            <aside className='ml-[14.5rem] mt-[0.3rem] gap-[1rem]'>
+            <aside>
                 {session.profileRole !== null && <Button onClick={handleShowOnlyMine}>Show: {onlyMine ? 'Mine' : 'All'}</Button>}
             </aside>
         </article>
 
-        <article className='relative'>
-            <Button onClick={handleLastWeekClick} className='absolute top-0 w-full z-5 calendar-week-navigator'>▲</Button>
+        <article className='w-full'>
+            <Button onClick={handleLastWeekClick} className='top-0 w-full z-5 calendar-week-navigator'>▲</Button>
+
             <article className='flex flex-col max-h-[27rem] overflow-y-auto my-2'>
                 {tasks.map(task => task.id ? <Task key={task.id} task={task} profile={profiles.find(profile => task.assignee === profile.id)} profileName={profiles.map(profile => task.assignee === profile.id ? profile.name : '')} onTaskClick={(task) => handleOnTaskClick(task)} today={today} /> : <EmptyDate key={task.date} task={task} onTaskClick={(taskDate) => handleProposeTaskClick(taskDate)} today={today} />)}
             </article>
 
-            <Button onClick={handleNextWeekClick} className='absolute bottom-0 w-full z-5 calendar-week-navigator'>▼</Button>
+            <Button onClick={handleNextWeekClick} className='bottom-0 w-full z-5 calendar-week-navigator'>▼</Button>
         </article>
 
         <article className='flex mb-[1rem] ml-[0.2rem]'>
