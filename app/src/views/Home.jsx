@@ -78,7 +78,7 @@ function Home(props) {
     }
 
     return <Container className='w-screen max-w-screen'>
-        <header className='flex justify-between w-screen px-5 py-2 mb-1 shadow-lg md:py-5 bg-amber-400'>
+        <header className='flex justify-between w-screen px-5 py-2 mb-1 shadow-lg h-14 md:py-5 bg-amber-400'>
             <h1 className='text-3xl text-white'>{homeName}</h1>
             <Button onClick={handleLogoutClick} className='px-3 bg-white rounded-md md:py-1'>Logout</Button>
         </header>

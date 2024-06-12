@@ -176,7 +176,7 @@ function Templates(props) {
             {<h3 className='text-xl font-bold'>Please create a room before creating a template</h3>}
         </article>}
 
-        <article className='flex flex-col gap-[2rem] m-[1.5rem] max-h-[27rem] overflow-y-auto'>
+        <article className='flex flex-col gap-[2rem] m-[1.5rem] max-h-[39rem] overflow-y-auto'>
             {rooms.length > 0 && templates.length > 0 && templates.map(template => <Template key={template.id} template={template} rooms={rooms} role={props.role} onDeleteSuccess={refreshTemplates} dayOrWeek={dayOrWeek} onSetDay={handleSetDay} onSetWeek={handleSetWeek} onEditSuccess={refreshTemplates} onRefreshRooms={refreshRooms} chosenRooms={chosenRooms} onChosenRoom={handleTaskClick} onCancelClick={handleCancelClick} confirm={props.confirm} confirmAction={props.confirmAction} onDeleteClick={(templateId) => handleDeleteClick(templateId)} onDeletionSuccess={handleDeletionSuccess} />)}
         </article>
 

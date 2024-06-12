@@ -74,7 +74,7 @@ function Rooms(props) {
     return <Container>
         {/* {rooms.length === 0 ? <h3 className='text-xl font-bold'>Please create a room clicking on the + below</h3> : ''} */}
 
-        <article className='flex flex-col gap-[2rem] m-[1.5rem] max-h-[27rem] overflow-y-auto'>
+        <article className='flex flex-col gap-[2rem] m-[1.5rem] max-h-[39rem] overflow-y-auto'>
             {rooms.map(room => <article key={room.id} className='grid grid-cols-2 gap-3'>
                 <h5 className='text-xl font-bold'>{helper.arrangeText(room.name)}</h5>
                 {session.profileRole === 'admin' && <Button type='button' onClick={() => handleDeleteRoomClick(room.id)} className='form-submit-button py-1 w-[10rem]'>Delete</Button>}
