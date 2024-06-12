@@ -18,7 +18,7 @@ function EmptyDate(props) {
     }
 
     return <Container className='relative'>
-        <Button className='absolute top-[20%] left-3 text-lg'>{task.date.split('-')[2]}</Button>
+        <Button className='absolute top-[20%] left-3 text-lg'>{task.date.split('-')[2] + '/' + task.date.split('-')[1]}</Button>
 
         <Button onClick={handleTaskClick} key={task.date} className='border-2 border-slate-300 p-0 my-2 w-[100%] text-lg'><p style={{ backgroundColor: task.date < props.today ? '#9fa0a469' : '' }} className='text-slate-400'>No tasks yet</p></Button>
     </Container>

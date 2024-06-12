@@ -17,7 +17,7 @@ function Task(props) {
     }
 
     return <Container className='relative'>
-        <Button className='absolute top-[30%] left-3 text-lg'>{task.date.split('-')[2].split('T')[0]}</Button>
+        <Button className='absolute top-[30%] left-3 text-lg'>{task.date.split('-')[2].split('T')[0] + '/' + task.date.split('-')[1]}</Button>
 
         <Button onClick={handleTaskClick} style={{ backgroundColor: task.date < props.today ? '#9fa0a469' : '' }} className='flex flex-col justify-center items-center border-2 border-slate-300 p-2 w-[100%] text-lg h-[5rem]'>
             <div className='grid grid-cols-3'>
@@ -26,7 +26,7 @@ function Task(props) {
                     <p>{assigneeName}</p>
                 </div>
 
-                <div className='col-span-1 flex items-center justify-end'>
+                <div className='flex items-center justify-end col-span-1'>
                     {task.done && <p>Completed</p>}
                     {task.delay !== 0 && `${task.delay} delays`}
                 </div>
